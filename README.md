@@ -20,7 +20,7 @@ Usage
 -----
 
 ```shell
-git clone https://github.com/lakim/ruby-chef-box.git my_project
+git clone https://github.com/gfauredumont/ruby-chef-box.git my_project
 cd my_project
 rm -rf .git
 berks install --path chef/cookbooks
