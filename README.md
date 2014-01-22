@@ -47,7 +47,7 @@ cd /vagrant
 gem install bundler
 gem install rails
 rbenv rehash
-rails new .
+bundle  /   rails new .
 ```
 
 Postgresql
