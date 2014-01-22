@@ -29,7 +29,7 @@ vagrant ssh
 ```
 
 On the VM:
-to avoid Docs installation in VM, create .gemrc file then edit it:
+to avoid Docs installation in VM, create `.gemrc` file then edit it:
 ```shell
 gem: --no-rdoc --no-ri
 ```
