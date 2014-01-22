@@ -29,6 +29,11 @@ vagrant ssh
 ```
 
 On the VM:
+to avoid Docs installation in VM, create .gemrc file then edit it:
+```shell
+gem: --no-rdoc --no-ri
+```
+
 ```shell
 sudo su deploy
 echo "source /etc/profile.d/rbenv.sh" >> ~/.bashrc
@@ -58,6 +63,12 @@ Test postgresql connection:
 ```shell
 psql --username=postgres --password --host=localhost
 ```
+
+Quit postgresql shell:
+```shell
+\q<ENTER>
+```
+
 
 Using Vagrant snapshots
 -----------------------
