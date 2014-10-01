@@ -28,6 +28,20 @@ vagrant up
 vagrant ssh
 ```
 
+If VirtualBox Guest Additions are not on the right version:
+-----------------------------------------------------------
+Go and follow these steps:
+[Ref](https://github.com/TryGhost/Ghost-Vagrant#updating-virtual-box-guest-additions)
+
+The packaged vagrant box from Ubuntu contains outdated Virtual Box Guest Additions.  Most of the time this shouldn't be a problem, but if you want to update them I recommend this procedure:
+
+1. Install the [vagrant-vbguest plugin](https://github.com/dotless-de/vagrant-vbguest): `vagrant plugin install vagrant-vbguest`
+1. Boot the vm without provisioning: `vagrant up --no-provision`
+1. Login with `vagrant ssh` and run `sudo apt-get -y -q purge virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11`
+1. Logout and `vagrant halt`
+1. `vagrant up --provision`
+
+
 On the VM:
 to avoid Docs installation in VM, create `.gemrc` file then edit it:
 ```shell
