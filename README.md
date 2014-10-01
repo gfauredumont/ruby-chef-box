@@ -42,6 +42,9 @@ The packaged vagrant box from Ubuntu contains outdated Virtual Box Guest Additio
 1. `vagrant up --provision`
 
 
+Other improvements:
+-------------------
+
 On the VM:
 to avoid Docs installation in VM, create `.gemrc` file then edit it:
 ```shell
