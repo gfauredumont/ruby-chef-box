@@ -70,10 +70,10 @@ $ rbenv install 2.0.0-p247
 # then assign it as default for current user:
 $ rbenv local 2.0.0-p247
 
-# NEW list of installed versions should list the 247 with a star:
+# new list of installed versions should list the 247 with a star:
 $ rbenv versions
 
-# WHEN INSTALLING new gems, refrech rbenv so he can use them:
+# WARNING: when installing new gems, refresh RBenv so he can use them:
 $ rbenv rehash
 ~~~
 
