@@ -54,9 +54,21 @@ gem: --no-rdoc --no-ri
 ```shell
 sudo su deploy
 echo "source /etc/profile.d/rbenv.sh" >> ~/.bashrc
-bash
-rbenv versions
+exit
 ```
+
+[RBenv](https://github.com/sstephenson/rbenv) for Ruby installation management:
+```shell
+# list installed Ruby versions:
+$ rbenv versions
+
+# list all available versions:
+$ rbenv install -l
+
+# install a Ruby version:
+$ rbenv install 2.0.0-p247
+```
+
 
 If the previous steps were fine, you should get a list of installed Ruby versions. Then go for some tests:
 ```shell
