@@ -12,20 +12,20 @@ Install Vagrant: http://docs.vagrantup.com/v2/installation/
 Install Virtual Box: https://www.virtualbox.org/wiki/Downloads
 
 ~~~ sh
-vagrant plugin install vagrant-omnibus
-gem install berkshelf
+$ vagrant plugin install vagrant-omnibus
+$ gem install berkshelf
 ~~~
 
 Usage
 -----
 
 ~~~ sh
-git clone https://github.com/gfauredumont/ruby-chef-box.git my_project
-cd my_project
-rm -rf .git
-berks install --path chef/cookbooks
-vagrant up
-vagrant ssh
+$ git clone https://github.com/gfauredumont/ruby-chef-box.git my_project
+$ cd my_project
+$ rm -rf .git
+$ berks install --path chef/cookbooks
+$ vagrant up
+$ vagrant ssh
 ~~~
 
 If VirtualBox Guest Additions are not on the right version:
@@ -52,9 +52,9 @@ gem: --no-rdoc --no-ri
 ~~~
 
 ~~~ sh
-sudo su deploy
-echo "source /etc/profile.d/rbenv.sh" >> ~/.bashrc
-exit
+$ sudo su deploy
+$ echo "source /etc/profile.d/rbenv.sh" >> ~/.bashrc
+$ exit
 ~~~
 
 [RBenv](https://github.com/sstephenson/rbenv) for Ruby installation management:
@@ -67,16 +67,21 @@ $ rbenv install -l
 
 # install a Ruby version:
 $ rbenv install 2.0.0-p247
+# then assign it as default for current user:
+$ rbenv local 2.0.0-p247
+
+# NEW list of installed versions should list the 247 with a star:
+$ rbenv versions
 ~~~
 
 
 If the previous steps were fine, you should get a list of installed Ruby versions. Then go for some tests:
 ~~~ sh
-cd /vagrant
-gem install bundler
-gem install rails
-rbenv rehash
-bundle  /   rails new .
+$ cd /vagrant
+$ gem install bundler
+$ gem install rails
+$ rbenv rehash
+$ bundle  /   rails new .
 ~~~
 
 Postgresql
@@ -85,16 +90,16 @@ Default user/password: `postgres/postgres`
 
 To generate a password:
 ~~~ sh
-echo -n 'my_password''postgres' | openssl md5 | sed 's/^.* //' | sed 's/^/md5/'
+$ echo -n 'my_password''postgres' | openssl md5 | sed 's/^.* //' | sed 's/^/md5/'
 ~~~
 
 Test postgresql connection:
 ~~~ sh
-psql --username=postgres --password --host=localhost
+$ psql --username=postgres --password --host=localhost
 ~~~
 
 Quit postgresql shell:
-~~~ sh
+~~~ sql
 \q<ENTER>
 ~~~
 
@@ -106,16 +111,16 @@ https://github.com/dergachev/vagrant-vbox-snapshot
 
 On your host:
 ~~~ sh
-vagrant plugin install vagrant-vbox-snapshot
+$ vagrant plugin install vagrant-vbox-snapshot
 ~~~
 
 Here are the most usefull commands, from the plugin page:
 ~~~ sh
-vagrant snapshot take [NAME]            # take snapshot, labeled by NAME
-vagrant snapshot list                   # list snapshots
-vagrant snapshot back                   # restore last taken snapshot
-vagrant snapshot delete [NAME]          # delete specified snapshot
-vagrant snapshot go [NAME]				# restore specified snapshot
+$ vagrant snapshot take [NAME]            # take snapshot, labeled by NAME
+$ vagrant snapshot list                   # list snapshots
+$ vagrant snapshot back                   # restore last taken snapshot
+$ vagrant snapshot delete [NAME]          # delete specified snapshot
+$ vagrant snapshot go [NAME]				# restore specified snapshot
 ~~~
 
 Remember you can also manage snapshots using Vagrant GUI. 
