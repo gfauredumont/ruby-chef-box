@@ -72,6 +72,9 @@ $ rbenv local 2.0.0-p247
 
 # NEW list of installed versions should list the 247 with a star:
 $ rbenv versions
+
+# WHEN INSTALLING new gems, refrech rbenv so he can use them:
+$ rbenv rehash
 ~~~
 
 
@@ -81,7 +84,7 @@ $ cd /vagrant
 $ gem install bundler
 $ gem install rails
 $ rbenv rehash
-$ bundle  /   rails new .
+$ bundler     # or  'rails new .'  for a new project ;)
 ~~~
 
 Postgresql
