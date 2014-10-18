@@ -11,22 +11,22 @@ Pre-requisites
 Install Vagrant: http://docs.vagrantup.com/v2/installation/
 Install Virtual Box: https://www.virtualbox.org/wiki/Downloads
 
-```shell
+~~~ sh
 vagrant plugin install vagrant-omnibus
 gem install berkshelf
-```
+~~~
 
 Usage
 -----
 
-```shell
+~~~ sh
 git clone https://github.com/gfauredumont/ruby-chef-box.git my_project
 cd my_project
 rm -rf .git
 berks install --path chef/cookbooks
 vagrant up
 vagrant ssh
-```
+~~~
 
 If VirtualBox Guest Additions are not on the right version:
 -----------------------------------------------------------
@@ -47,15 +47,15 @@ Other improvements:
 
 On the VM:
 to avoid Docs installation in VM, create `.gemrc` file then edit it:
-```shell
+~~~ sh
 gem: --no-rdoc --no-ri
-```
+~~~
 
-```shell
+~~~ sh
 sudo su deploy
 echo "source /etc/profile.d/rbenv.sh" >> ~/.bashrc
 exit
-```
+~~~
 
 [RBenv](https://github.com/sstephenson/rbenv) for Ruby installation management:
 ~~~ sh
@@ -71,32 +71,32 @@ $ rbenv install 2.0.0-p247
 
 
 If the previous steps were fine, you should get a list of installed Ruby versions. Then go for some tests:
-```shell
+~~~ sh
 cd /vagrant
 gem install bundler
 gem install rails
 rbenv rehash
 bundle  /   rails new .
-```
+~~~
 
 Postgresql
 ----------
 Default user/password: `postgres/postgres`
 
 To generate a password:
-```shell
+~~~ sh
 echo -n 'my_password''postgres' | openssl md5 | sed 's/^.* //' | sed 's/^/md5/'
-```
+~~~
 
 Test postgresql connection:
-```shell
+~~~ sh
 psql --username=postgres --password --host=localhost
-```
+~~~
 
 Quit postgresql shell:
-```shell
+~~~ sh
 \q<ENTER>
-```
+~~~
 
 
 Using Vagrant snapshots
@@ -105,18 +105,18 @@ Taking snapshots of your Vagrant VM can save you a lot of time, especially when 
 https://github.com/dergachev/vagrant-vbox-snapshot
 
 On your host:
-```shell
+~~~ sh
 vagrant plugin install vagrant-vbox-snapshot
-```
+~~~
 
 Here are the most usefull commands, from the plugin page:
-```shell
+~~~ sh
 vagrant snapshot take [NAME]            # take snapshot, labeled by NAME
 vagrant snapshot list                   # list snapshots
 vagrant snapshot back                   # restore last taken snapshot
 vagrant snapshot delete [NAME]          # delete specified snapshot
 vagrant snapshot go [NAME]				# restore specified snapshot
-```
+~~~
 
 Remember you can also manage snapshots using Vagrant GUI. 
 
