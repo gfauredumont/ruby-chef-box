@@ -58,7 +58,7 @@ exit
 ```
 
 [RBenv](https://github.com/sstephenson/rbenv) for Ruby installation management:
-```shell
+~~~ sh
 # list installed Ruby versions:
 $ rbenv versions
 
@@ -67,7 +67,7 @@ $ rbenv install -l
 
 # install a Ruby version:
 $ rbenv install 2.0.0-p247
-```
+~~~
 
 
 If the previous steps were fine, you should get a list of installed Ruby versions. Then go for some tests:
