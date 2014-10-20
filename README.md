@@ -42,21 +42,26 @@ The packaged vagrant box from Ubuntu contains outdated Virtual Box Guest Additio
 1. `vagrant up --provision`
 
 
-Other improvements:
+Rails & other improvements (in the VM):
 -------------------
+the rest will have to be done using the 'deploy' user for latter use:
+~~~ sh
+$ sudo su deploy
+~~~
 
-On the VM:
+
 to avoid Docs installation in VM, create `.gemrc` file then edit it:
 ~~~ sh
 gem: --no-rdoc --no-ri
 ~~~
 
+Prepare deploy use RBenv by adding right entries in PATH
 ~~~ sh
-$ sudo su deploy
 $ echo "source /etc/profile.d/rbenv.sh" >> ~/.bashrc
 $ exit
 ~~~
 
+Again as the 'deploy' user, use rbenv to install the right Ruby version:
 [RBenv](https://github.com/sstephenson/rbenv) for Ruby installation management:
 ~~~ sh
 # list installed Ruby versions:
@@ -107,8 +112,9 @@ Quit postgresql shell:
 ~~~
 
 
-Using Vagrant snapshots
------------------------
+
+Using Vagrant snapshots (on host)
+---------------------------------
 Taking snapshots of your Vagrant VM can save you a lot of time, especially when you experimenting. Vagrant comes with a build in snapshot engine, which can be controlled from the command line thanks to this plugin :
 https://github.com/dergachev/vagrant-vbox-snapshot
 
@@ -129,8 +135,8 @@ $ vagrant snapshot go [NAME]				# restore specified snapshot
 Remember you can also manage snapshots using Vagrant GUI. 
 
 
-TODO
-----
+TODO (in chef scripts)
+----------------------
 * Fix rbenv PATH for deploy user
 * Use UNIX socket for postgres instead of TCP connection
 * Do not configure gems doc by default
