@@ -46,7 +46,7 @@ Rails & other improvements (in the VM):
 -------------------
 the rest will have to be done using the 'deploy' user for latter use:
 ~~~ sh
-$ sudo su deploy
+$ sudo su - deploy
 ~~~
 
 
